@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
     public function show()
-    {
-        return view('auth.profile');
+    {   
+        
+        if (Auth::check()) {
+            return view('auth.profile');
+        }
     }
 
     public function update(ProfileUpdateRequest $request)
