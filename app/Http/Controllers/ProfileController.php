@@ -11,7 +11,8 @@ class ProfileController extends Controller
     {   
         
         if (Auth::check()) {
-            return view('auth.profile');
+            $user = Auth::user();
+            return view('auth.profile',compact('user'));
         }
     }
 
